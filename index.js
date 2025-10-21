@@ -85,7 +85,6 @@ function setup() {
   // Enable the input and submit button
   submitButton.disabled = false;
   guessInput.disabled = false;
-
   hideAllMessages();
   resetButton.style.display = 'none';
 }
