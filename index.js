@@ -85,7 +85,6 @@ function setup() {
   // Enable the input and submit button
   submitButton.disabled = false;
   guessInput.disabled = false;
-
   hideAllMessages();
   resetButton.style.display = 'none';
 }
@@ -94,3 +93,5 @@ submitButton.addEventListener('click', checkGuess);
 resetButton.addEventListener('click', setup);
 
 setup();
+
+//testing
