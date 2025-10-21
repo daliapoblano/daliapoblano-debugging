@@ -1,3 +1,4 @@
+// Variables used throughout the program
 const guessInput = document.getElementById('guess');
 const submitButton = document.getElementById('submit');
 const resetButton = document.getElementById('reset');
@@ -18,10 +19,14 @@ const maxNumberOfAttempts = 5;
 // <- 32
 // > getRandomNumber(1, 50)
 // <- 11
-function getRandomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
+
+// This function returns a random number between the min and max values
+function getRandomNumber(min, max) 
+{
+  return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
+// This function gets the value the user inputted and checks the guss 
 function checkGuess() {
   // Get value from guess input element
   const guess = parseInt(guessInput.value, 10);
@@ -29,6 +34,7 @@ function checkGuess() {
 
   hideAllMessages();
 
+  // Checking if guess matches the target number
   if (guess === targetNumber) {
     numberOfGuessesMessage.style.display = '';
     numberOfGuessesMessage.innerHTML = `You made ${attempts} guesses`;
@@ -38,21 +44,21 @@ function checkGuess() {
     submitButton.disabled = true;
     guessInput.disabled = true;
   }
-
+  // Checking if guess is too low or too high 
   if (guess !== targetNumber) {
     if (guess < targetNumber) {
       tooLowMessage.style.display = '';
     } else {
-      tooLowMessage.style.display = '';
+      tooHighMessage.style.display = '';
     }
-
+    // Remaining attempts
     const remainingAttempts = maxNumberOfAttempts - attempts;
 
     numberOfGuessesMessage.style.display = '';
     numberOfGuessesMessage.innerHTML = `You guessed ${guess}. <br> ${remainingAttempts} guesses remaining`;
   }
-
-  if (attempts ==== maxNumberOfAttempts) {
+  // Disables the buttons once the user has reached the max # of attempts
+  if (attempts === maxNumberOfAttempts) {
     submitButton.disabled = true;
     guessInput.disabled = true;
   }
@@ -63,21 +69,21 @@ function checkGuess() {
 }
 
 function hideAllMessages() {
-  for (let elementIndex = 0; elementIndex <= messages.length; elementIndex++) {
+  for (let elementIndex = 0; elementIndex < messages.length; elementIndex++) {
     messages[elementIndex].style.display = 'none';
   }
 }
 
-funtion setup() {
+function setup() {
   // Get random number
   targetNumber = getRandomNumber(1, 100);
   console.log(`target number: ${targetNumber}`);
 
   // Reset number of attempts
-  maxNumberOfAttempts = 0;
+  attempts = 0;
 
   // Enable the input and submit button
-  submitButton.disabeld = false;
+  submitButton.disabled = false;
   guessInput.disabled = false;
 
   hideAllMessages();

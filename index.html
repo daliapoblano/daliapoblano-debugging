@@ -16,20 +16,24 @@
       </p>
       <div>
         <input type="number" id="guess" min="1" max="99" />
+        <!-- Submit button -->
         <button id="submit">Submit Guess</button>
       </div>
       <div>
         <p class="message" id="number-of-guesses"></p>
+        <!-- Different outcomes -->
         <p class="message" id="too-high">You guessed too high. Try again.</p>
         <p class="message" id="too-low">You guessed too low. Try again.</p>
         <p class="message" id="max-guesses">
           You reached the max number of guesses
         </p>
+        <!-- Print this out if you're successful -->
         <p class="message" id="correct">
           Congratulations, You guessed correctly! <br />
           Would you like to play again?
         </p>
       </div>
+      <!-- Reset button -->
       <button id="reset">Reset</button>
     </main>
     <script src="index.js"></script>
